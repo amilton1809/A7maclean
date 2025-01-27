@@ -27,10 +27,62 @@ h2 {
 
 /*ids navbar*/
 @media (max-width: 768px) {
-    #navbar-list {
-        flex: 1 1 calc(50% - 10px);
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    #navbar h2 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    #navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    @media (max-width: 768px) {
+        /* Esconde o menu inicialmente */
+        #navbar-list {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: #2c457c;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
+        #navbar-list.active {
+            display: block; /* Exibe a lista quando a classe 'active' for aplicada */
+        }
+    
+        /* Exibe o ícone de 3 pontinhos em dispositivos móveis */
+        #navbar .menu-icon {
+            cursor: pointer;
+            font-size: 2rem;
+            color: aliceblue;
+            display: block; /* Exibe o ícone */
+        }
+    }
+    
+
+    #navbar img {
+        align-self: flex-start;
+        max-width: 50px;
+        height: auto;
     }
 }
+
+
 
 
 #navbar {
@@ -82,9 +134,32 @@ h2 {
 
 #main-banner {
     position: relative;
-    height: 70vh;
-    padding-top: 15vh;
-    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+@media (max-width: 480px) {
+    #main-banner {
+        height: 200px;
+    }
+
+    #background {
+        background-size: contain;
+        background-position: center;
+        height: 200px;
+    }
+
+    #banner-info img {
+        max-height: 80px;
+        max-width: 50%;
+        position: relative;
+        top: -25px;
+
+    }
+    #banner-info h1 {
+        font-size: 1.5rem;
+    }
+
 }
 
 #main-banner #background {
@@ -95,6 +170,7 @@ h2 {
     height: 100%;
     background-image: url('../img/pexel.jpg');
     background-size: cover;
+    background-position: center;
     filter: brightness(0.8);
     z-index: -1;
 }
