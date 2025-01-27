@@ -50,7 +50,7 @@ h2 {
     }
 
     @media (max-width: 768px) {
-        /* Esconde o menu inicialmente */
+        
         #navbar-list {
             display: none;
             position: absolute;
@@ -62,15 +62,15 @@ h2 {
         }
     
         #navbar-list.active {
-            display: block; /* Exibe a lista quando a classe 'active' for aplicada */
+            display: block; /
         }
     
-        /* Exibe o ícone de 3 pontinhos em dispositivos móveis */
+        
         #navbar .menu-icon {
             cursor: pointer;
             font-size: 2rem;
             color: aliceblue;
-            display: block; /* Exibe o ícone */
+            display: block; /
         }
     }
     
@@ -244,13 +244,13 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 480px) {
-
-.skills-container {
-    flex: 1 1 calc(50% - 10px);
-}
+    .skills-container {
+        flex: 1 1 100%;  /* Em telas pequenas, as colunas ocupam 100% da largura */
+    }
 }
 
 .skills-container {
