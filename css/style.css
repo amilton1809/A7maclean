@@ -277,6 +277,7 @@ h2 {
     border-bottom: 4px solid #2c457c;
     border-right: 4px solid #2c457c;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .skills-container .subtitle {
@@ -291,6 +292,14 @@ h2 {
 }
 
 /*Jobs*/
+
+#jobs-sectionv {
+    text-align: center;
+    background-color: #2c457c;
+    color: #FFF;
+    padding-top: 50px;
+    height: 150px;
+}
 
 #jobs-section {
     text-align: center;
