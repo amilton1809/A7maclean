@@ -303,6 +303,12 @@ h2 {
     color: #FFF;
     padding-top: 50px;
     height: 150px;
+    
+}
+
+#jobs-sectionv a {
+    text-decoration: none;
+    color: inherit;
 }
 
 #jobs-section {
