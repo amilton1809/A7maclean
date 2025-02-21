@@ -105,6 +105,7 @@ h2 {
 #navbar img {
     height: 45px;
     position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     top: 5px;
     border-radius: 90px;
 }
@@ -187,6 +188,7 @@ h2 {
 #banner-info img {
     height: 220px;
     border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #ED1E24;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -274,11 +276,9 @@ h2 {
 .skills-container img {
     height: 90px;
     margin-bottom: 25px;
-    border-top: 1px solid #2c457c;
-    border-left: 1px solid #2c457c;
-    border-bottom: 4px solid #2c457c;
-    border-right: 4px solid #2c457c;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
     cursor: pointer;
 }
 
@@ -338,8 +338,7 @@ h2 {
     height: 300px;
     background-size: cover;
     background-position: center;
-    border-right: 2px solid #2c457c;
-    border-bottom: 2px solid #2c457c;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (max-width: 900px) {
