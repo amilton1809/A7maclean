@@ -99,12 +99,6 @@
     }
 }
 
-@media (max-width: 900px) {
-    .job-box {
-        flex: 1 1 calc(50% - 20px);
-        height: 200px;
-    }
-}
 
 @media (max-width: 768px) {
     footer, footer form, footer input, footer textarea, footer .detail {
