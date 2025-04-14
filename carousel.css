@@ -1,0 +1,89 @@
+#jobs-section {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #d4d6db; /* Fundo atrás do carrossel */
+    padding-bottom: 50px; /* Um pouco de espaçamento na parte de baixo */
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 620px; /* Duas imagens com gap de 10px = 2x300 + 10 */
+    margin: auto;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 10px;
+    will-change: transform;
+}
+
+.job-box {
+    flex: 0 0 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+
+.proj1 {
+    background-image: url('../img/IMG_0327.JPG');
+}
+
+.proj2 {
+    background-image: url('../img/usa2.jpg');
+}
+
+.proj3 {
+    background-image: url('../img/usa1.JPG');
+}
+
+.proj4 {
+    background-image: url('../img/IMG_0319.JPG');
+}
+
+.proj5 {
+    background-image: url('../img/IMG_0320.jpg');
+}
+
+.proj6 {
+    background-image: url('../img/IMG_0444.JPG');
+}
+
+.proj7 {
+    background-image: url('../img/IMG_0438.JPG');
+}
+
+.proj8 {
+    background-image: url('../img/IMG_0322.JPG');
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}

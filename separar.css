@@ -114,4 +114,24 @@
       font-size: 1.1rem;
     }
   }
+
+ /* MOBILE: força a centralização e evita cortes */
+@media (max-width: 600px) {
+    .carousel-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .carousel-track {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .job-box {
+        flex: 0 0 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
   
