@@ -12,8 +12,7 @@ body, p, h1, h2, input, textarea {
     font-family: roboto;
 }
 
-
-
+/**/
 h2 {
     font-size: 30px;
 }
@@ -279,6 +278,48 @@ h2 {
 .proj6 {
     background-image: url('../img/IMG_0444.JPG');
 }
+
+/*Vodeo e :hover*/
+
+.jobinho {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+  }
+  
+  /* Cada vídeo dentro da galeria */
+  .video-box {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .video-box video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    opacity: 0.9;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .video-box:hover video {
+    transform: scale(1.02);
+    pointer-events: auto;
+  }
+  
+
+/*video fim*/
 
 /*footer*/
 
