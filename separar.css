@@ -57,8 +57,8 @@
 
     #navbar img {
         align-self: flex-start;
-        max-width: 30px;
-        height: auto;
+        max-width: 26px;
+        height: 22px;
     }
 }
 
@@ -75,7 +75,7 @@
   
     #banner-info img {
       max-height: 100px;
-      max-width: 32%;
+      max-width: 26%;
       position: relative;
       top: -15px; /* 🔽 ajusta menos o topo */
     }
@@ -86,9 +86,16 @@
   }
   
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .skills-container {
-        flex: 1 1 100%;  /* Em telas pequenas, as colunas ocupam 100% da largura */
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .skills-container img {
+        max-width: 100%; /* Faz a imagem ocupar a largura da tela, sem ultrapassar */
+        height: auto;
     }
 }
 

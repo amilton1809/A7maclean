@@ -13,11 +13,6 @@
     margin: auto;
 }
 
-.carousel-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -33,6 +28,11 @@
     border-radius: 12px;
 }
 
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+}
 
 .proj1 {
     background-image: url('../img/IMG_0327.JPG');
