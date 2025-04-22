@@ -122,23 +122,26 @@
     }
   }
 
- /* MOBILE: força a centralização e evita cortes */
-@media (max-width: 600px) {
+  @media (max-width: 768px) {
     .carousel-container {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
-    .carousel-track {
-        gap: 10px;
-        justify-content: center;
+        max-width: 320px; /* Máxima largura do carrossel */
     }
 
     .job-box {
-        flex: 0 0 100%;
-        max-width: 300px;
+        flex: 0 0 100%; /* Uma imagem por vez nas telas menores */
+        height: 300px;
         margin: 0 auto;
     }
 }
 
-  
+/* Estilos para telas maiores (2 imagens por vez) */
+@media (min-width: 769px) {
+    .carousel-container {
+        max-width: 640px; /* Largura máxima do carrossel */
+    }
+
+    .job-box {
+        flex: 0 0 48%; /* Duas imagens por vez, com espaço entre elas */
+        height: 300px;
+    }
+}

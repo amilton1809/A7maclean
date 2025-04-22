@@ -1,89 +1,67 @@
+const track = document.querySelector('.carousel-track');
+  const boxes = Array.from(document.querySelectorAll('.job-box'));
+  const prevButton = document.querySelector('.carousel-btn.prev');
+  const nextButton = document.querySelector('.carousel-btn.next');
 
-  document.querySelectorAll('.video-box').forEach((box) => {
-    const video = box.querySelector('video');
+  let index = 0;
+  let boxWidth;
+  let itemsPerView;
 
-    box.addEventListener('mouseenter', () => {
-      video.play();
+  function cloneSlides() {
+    const clonesStart = boxes.slice(-itemsPerView).map(el => el.cloneNode(true));
+    const clonesEnd = boxes.slice(0, itemsPerView).map(el => el.cloneNode(true));
+
+    clonesStart.forEach(clone => {
+      track.insertBefore(clone, track.firstChild);
     });
 
-    box.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
+    clonesEnd.forEach(clone => {
+      track.appendChild(clone);
     });
-  });
+  }
 
-  const btnTop = document.getElementById("btn-top");
+  function updateItemsPerView() {
+    itemsPerView = window.innerWidth <= 768 ? 1 : 2;
+    const boxWidth = track.querySelector('.job-box').offsetWidth + 10;
+    track.style.transform = `translateX(-${boxWidth * itemsPerView}px)`;
+  }
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      btnTop.classList.add("show");
-    } else {
-      btnTop.classList.remove("show");
+  function updateSizes() {
+    itemsPerView = window.innerWidth <= 768 ? 1 : 2;
+    boxWidth = track.querySelector('.job-box').offsetWidth + 10;
+    track.style.transform = `translateX(-${boxWidth * itemsPerView}px)`;
+  }
+
+  function moveTo(indexDelta) {
+    index += indexDelta;
+    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(-${boxWidth * (index + itemsPerView)}px)`;
+
+    // Reset para loop suave
+    track.addEventListener('transitionend', handleLoop, { once: true });
+  }
+
+  function handleLoop() {
+    if (index >= boxes.length) {
+      index = 0;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${boxWidth * itemsPerView}px)`;
+    } else if (index < 0) {
+      index = boxes.length - 1;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${boxWidth * (index + itemsPerView)}px)`;
     }
-  });
+  }
 
-  btnTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
+  prevButton.addEventListener('click', () => moveTo(-1));
+  nextButton.addEventListener('click', () => moveTo(1));
+  window.addEventListener('resize', () => location.reload());
 
+  window.addEventListener('resize', updateItemsPerView);
+  updateItemsPerView();  // Atualiza na inicialização
 
-  const track = document.querySelector('.carousel-track');
-    const boxes = Array.from(document.querySelectorAll('.job-box'));
-    const nextBtn = document.querySelector('.carousel-btn.next');
-
-    let currentIndex = 0;
-    let boxWidth = 310; // Largura da imagem + gap
-    let visibleBoxes = 2; // Padrão para telas maiores
-
-    // DUPLICAR OS ITENS PARA SCROLL INFINITO
-    boxes.forEach(box => {
-        const clone = box.cloneNode(true);
-        track.appendChild(clone);
-    });
-
-    const totalBoxes = track.querySelectorAll('.job-box').length;
-
-    function checkScreenSize() {
-        if (window.innerWidth <= 600) {
-            visibleBoxes = 1;
-        } else {
-            visibleBoxes = 2;
-        }
-    }
-
-    function updateCarousel(animate = true) {
-        const offset = currentIndex * boxWidth;
-        if (!animate) {
-            track.style.transition = 'none';
-        } else {
-            track.style.transition = 'transform 0.5s ease-in-out';
-        }
-        track.style.transform = `translateX(-${offset}px)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex++;
-        updateCarousel();
-
-        if (currentIndex >= totalBoxes - visibleBoxes) {
-            setTimeout(() => {
-                currentIndex = 0;
-                updateCarousel(false);
-            }, 500);
-        }
-    });
-
-    // Atualiza o número de imagens visíveis ao redimensionar
-    window.addEventListener('resize', () => {
-        checkScreenSize();
-        updateCarousel(false);
-    });
-
-    // Inicializa
-    checkScreenSize();
-    updateCarousel(false);
-
-
+  // Inicialização
+  cloneSlides();
+  setTimeout(() => {
+    updateSizes();
+  }, 100);
