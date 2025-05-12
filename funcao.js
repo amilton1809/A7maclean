@@ -58,7 +58,6 @@ prevButton.addEventListener('click', () => moveTo(-1));
 nextButton.addEventListener('click', () => moveTo(1));
 window.addEventListener('resize', () => location.reload());
 
-window.addEventListener('resize', updateItemsPerView);
 updateItemsPerView();  // Atualiza na inicialização
 
 // Inicialização
