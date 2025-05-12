@@ -6,6 +6,7 @@ const nextButton = document.querySelector('.carousel-btn.next');
 let index = 0;
 let boxWidth;
 let itemsPerView;
+let resizeTimeout;
 
 function cloneSlides() {
   const clonesStart = boxes.slice(-itemsPerView).map(el => el.cloneNode(true));
@@ -56,7 +57,13 @@ function handleLoop() {
 // Animar senções da page
 prevButton.addEventListener('click', () => moveTo(-1));
 nextButton.addEventListener('click', () => moveTo(1));
-window.addEventListener('resize', () => location.reload());
+
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    updateSizes(); // Chame sua função para atualizar o tamanho aqui
+  }, 200);
+});
 
 updateItemsPerView();  // Atualiza na inicialização
 
