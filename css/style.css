@@ -286,8 +286,8 @@ h2 {
 
 /*video fim*/
 
-
 #btn-top {
+    border: 1px solid red;
     position: fixed;
     bottom: 20px;
     right: 20px;
